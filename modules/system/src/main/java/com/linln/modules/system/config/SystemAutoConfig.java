@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
  * @date 2021/3/19
  */
 @ComponentScan(basePackages = "com.linln.modules.system")
-@EnableJpaRepositories("com.linln.modules.system")
-@EntityScan("com.linln.modules.system")
+@EnableJpaRepositories(basePackages = "com.linln.modules.system")
+@EntityScan(basePackages = "com.linln.modules.system")
 public class SystemAutoConfig {
 }

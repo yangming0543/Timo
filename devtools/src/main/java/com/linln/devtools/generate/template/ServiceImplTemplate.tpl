@@ -24,7 +24,6 @@ public class #{entity}ServiceImpl implements #{entity}Service {
      * @param id 主键ID
      */
     @Override
-    @Transactional
     public #{entity} getById(Long id) {
         return #{name}Repository.findById(id).orElse(null);
     }
@@ -54,7 +53,7 @@ public class #{entity}ServiceImpl implements #{entity}Service {
      * 状态(启用，冻结，删除)/批量状态处理
      */
     @Override
-    @Transactional
+    @Transactional(rollbackFor = Exception.class)
     public Boolean updateStatus(StatusEnum statusEnum, List<Long> idList){
         return #{name}Repository.updateStatus(statusEnum.getCode(), idList) > 0;
     }
