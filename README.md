@@ -54,11 +54,11 @@ TIMO后台管理系统，基于SpringBoot2.0 + Spring Data Jpa + Thymeleaf + Shi
 #### 使用说明
 
 1. 使用文档：sdoc/使用文档.docx
-2. 开发手册：[TIMO开发文档](http://www.auntvt.com/docs)、[看云文档](https://www.kancloud.cn/timo/timo-doc)
+2. 开发手册：[TIMO开发文档](http://42.194.205.137/docs)、[看云文档](https://www.kancloud.cn/timo/timo-doc)
 3. SQL文件：sdoc/timo.sql
 
 #### 演示地址
-演示地址： [http://www.auntvt.com](http://www.auntvt.com)
+演示地址： [http://42.194.205.137](http://42.194.205.137)
 
 #### 预览图
 
