@@ -22,7 +22,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.4.RELEASE</version>
+        <version>2.6.7</version>
         <relativePath/>
     </parent>
 
@@ -31,21 +31,19 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <!--shiro权限管理框架版本：component.shiro-->
-        <shiro.version>1.4.0</shiro.version>
-        <lombok.version>1.18.2</lombok.version>
-        <ehcache.version>2.10.5</ehcache.version>
+        <shiro.version>1.9.0</shiro.version>
+        <lombok.version>1.18.24</lombok.version>
+        <ehcache.version>2.10.9.2</ehcache.version>
         <mysql.connector.version>5.1.46</mysql.connector.version>
-        <jsoup.version>1.11.3</jsoup.version>
+        <jsoup.version>1.14.3</jsoup.version>
         <!--shiro模板视图权限标签扩展：component.thymeleaf-->
-        <thymeleaf-shiro.version>2.0.0</thymeleaf-shiro.version>
+        <thymeleaf-shiro.version>2.1.0</thymeleaf-shiro.version>
         <!--excel工具框架版本：component.excel-->
-        <poi.version>4.0.0</poi.version>
+        <poi.version>4.1.2</poi.version>
         <!--jwt处理框架版本：component.jwt-->
-        <jwt.version>3.4.0</jwt.version>
-        <!--swagger2接口文档版本：component.jwt-->
-        <swagger.version>2.9.2</swagger.version>
+        <jwt.version>3.19.1</jwt.version>
         <!--swagger-knife4j接口文档页面：component.jwt-->
-        <swagger.knife4j.version>2.0.1</swagger.knife4j.version>
+        <knife4j.version>3.0.3</knife4j.version>
         <google.findbugs.version>3.0.1</google.findbugs.version>
         <skipTests>true</skipTests>
     </properties>
@@ -54,6 +52,10 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-validation</artifactId>
         </dependency>
         <!--spring data jpa持久层框架-->
         <dependency>
@@ -75,9 +77,16 @@
             <artifactId>spring-boot-devtools</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
 
@@ -111,22 +120,11 @@
             <version>${jsoup.version}</version>
         </dependency>
 
-        <!--swagger2接口文档-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <!--knife4j（swagger-bootstrap-ui）接口文档页面-->
+        <!--knife4j 接口文档-->
         <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-ui</artifactId>
-            <version>${swagger.knife4j.version}</version>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
 
         <!--解决编译时javax.annotation.meta.When不存在问题-->

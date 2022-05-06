@@ -46,3 +46,8 @@ spring:
   ## json配置
   jackson:
     time-zone: Asia/Shanghai
+
+  ## 路径匹配器（解决springfox冲突）
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher

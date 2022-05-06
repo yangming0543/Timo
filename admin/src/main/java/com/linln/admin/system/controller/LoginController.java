@@ -146,17 +146,9 @@ public class LoginController implements ErrorController {
     }
 
     /**
-     * 自定义错误页面
-     */
-    @Override
-    public String getErrorPath() {
-        return "/error";
-    }
-
-    /**
      * 处理错误页面
      */
-    @RequestMapping("/error")
+    @RequestMapping("${server.error.path:${error.path:/error}}")
     public String handleError(Model model, HttpServletRequest request) {
         Integer statusCode = (Integer) request.getAttribute("javax.servlet.error.status_code");
         String errorMsg = "好像出错了呢！";
