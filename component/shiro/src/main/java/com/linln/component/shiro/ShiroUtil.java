@@ -11,9 +11,11 @@ import org.apache.shiro.SecurityUtils;
 import org.hibernate.Hibernate;
 import org.hibernate.LazyInitializationException;
 import org.springframework.beans.BeanUtils;
+import org.springframework.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Set;
+import java.util.regex.Pattern;
 
 /**
  * Shiro工具类
@@ -22,6 +24,16 @@ import java.util.Set;
  * @date 2018/8/14
  */
 public class ShiroUtil {
+
+    /**
+     * 多个IP的分隔符
+     */
+    private static final char IP_SPLIT = ',';
+
+    /**
+     * IP验证正则对象
+     */
+    private static final Pattern IP_PATTERN = Pattern.compile("\\d{1,3}(\\.\\d{1,3}){3,5}$");
 
     /**
      * 加密算法
@@ -122,6 +134,15 @@ public class ShiroUtil {
         if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
+
+        // 校验IP地址，防止恶意伪造请求头信息，暂时只允许ipv4的地址
+        if (StringUtils.hasText(ip)) {
+            ip = ip.substring(ip.lastIndexOf(IP_SPLIT) + 1).trim();
+            if (!IP_PATTERN.matcher(ip).matches()) {
+                ip = "ipv4 unknown";
+            }
+        }
+
         return ip;
     }
 }
